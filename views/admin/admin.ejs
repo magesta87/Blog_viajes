@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/Css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/stylesheets/bootstrap/bootstrap-icons/bootstrap-icons.css"
+    />
+
+    <title>Viajes</title>
+  </head>
+  <body>
+    <header><%- include('../partials/encabezado_admin') %></header>
+    <div class="mt-5">
+      <% if (mensaje && mensaje.length > 0) { %>
+      <h4 class="mt-4">
+        <span class="bi bi-info-circle"></span>
+        <%=mensaje%>
+      </h4>
+      <% } %>
+      <h3 class="text-center">Admin - Mis publicaciones</h3>
+      <h3><%=mensaje%></h3>
+    </div>
+    <hr />
+    <div class="container">
+      <table class="table table-bordered table-light">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Resumen</th>
+            <th>Votos</th>
+            <th>Herramientas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <% publicaciones.forEach(publicacion=>{ %>
+            <td><%= publicacion.titulo %></td>
+            <td><%= publicacion.resumen %></td>
+            <td><%= publicacion.votos %></td>
+            <td class="text-center">
+              <a
+                href="/admin/editar/<%=publicacion.id  %> "
+                class="bi bi-gear"
+              ></a>
+              |
+              <a
+                href="/admin/borrar/<%=publicacion.id %> "
+                class="bi bi-trash"
+                onclick="return confirm('¿Está seguro de eliminar: <%=publicacion.titulo%>?')"
+              ></a>
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+      <hr />
+      <a type="button" href="/admin/agregar" class="btn btn-light"
+        >Agregar publicacion</a
+      >
+    </div>
+    <%-include('../partials/footer.ejs') %>
+    <script src="/javascripts/bootstrap.min.js"></script>
+  </body>
+</html>

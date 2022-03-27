@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/Css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/stylesheets/bootstrap/bootstrap-icons/bootstrap-icons.css"
+    />
+    <title>Viajes</title>
+  </head>
+
+  <body>
+    <header><%- include('./partials/encabezado.ejs') %></header>
+    <div class="container-fluid mt-5">
+      <form action="/">
+        <div class="row g-3 justify-content-center mb-3 align-items-center">
+          <div class="col-auto">
+            <label for="inputPassword6" class="col-form-label"
+              >Buscar publicación</label
+            >
+          </div>
+          <div class="col-auto">
+            <input
+              type="text"
+              id="buscar"
+              name="buscar"
+              value="<%=busqueda  %> "
+              class="form-control"
+              aria-describedby="buscador"
+            />
+          </div>
+          <div class="col-auto">
+            <button id="buscador" class="btn btn-success">
+              <i class="bi bi-search"></i> Buscar
+            </button>
+          </div>
+        </div>
+      </form>
+      <% publicaciones.forEach(publicacion =>{ %>
+      <div class="col-sm-12 mb-3">
+        <div class="card fluid">
+          <div class="card-header">
+            <h3><%=publicacion.titulo %></h3>
+            <% if(publicacion.avatar && publicacion.avatar != ""){ %>
+            <img src="../public/avatar/<%=publicacion.avatar %>" alt="avatar" />
+            <% }else{ %>
+            <span class="person bi bi-person-circle" href="#">
+              <% } %> <%=publicacion.pseudonimo%>
+            </span>
+
+            <a
+              class="tag heart bi bi-chat-heart-fill"
+              width="50px"
+              heigth="50px"
+              href="#"
+            >
+              <%=publicacion.votos%>
+            </a>
+            ||
+            <span class="bi bi-calendar"></span>
+            <%= publicacion.fecha_hora.getDay() %>/<%=
+            publicacion.fecha_hora.getMonth()%>/<%=
+            publicacion.fecha_hora.getFullYear() %>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title"><%=publicacion.tiutlo %></h5>
+            <p class="card-text"><%=publicacion.resumen %></p>
+            <a href="/publicacion/<%=publicacion.id %> " class="btn btn-primary"
+              >ir a publicacion</a
+            >
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <div class="row text-center">
+      <div class="col-sm-12">
+        <p>
+          <a class="text-decoration-none" href="/?pagina=<%=pagina - 1%>"
+            ><i class="bi bi-arrow-left"></i> Anterior</a
+          >
+          |
+          <a class="text-decoration-none" href="/?pagina=<%=pagina + 1%>"
+            >Siguiente <i class="bi bi-arrow-right"></i
+          ></a>
+        </p>
+      </div>
+    </div>
+    <%-include('./partials/footer.ejs') %>
+    <script src="/javascripts/bootstrap.min.js"></script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/Css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/stylesheets/bootstrap/bootstrap-icons/bootstrap-icons.css"
+    />
+
+    <title>Viajes</title>
+  </head>
+
+  <body>
+    <%- include('./partials/encabezado.ejs') %>
+    <div
+      class="container shadow-lg bg-light mt-3 col-md-6 text-center border-2 rounded-3"
+    >
+      <% if (mensaje && mensaje.length > 0) { %>
+      <h4>
+        <span class="bi bi-info-circle bg-danger"></span>
+        <%=mensaje%>
+      </h4>
+      <% } %>
+      <form
+        class="p-3"
+        action="/nuevo_autor"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="bg-dark text-white rounded-pill">
+          <h5>Nuevo autor</h5>
+        </div>
+        <div class="form-group mb-3">
+          <div class="form-label">Email</div>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <div class="form-label">Contraseña</div>
+          <input
+            type="password"
+            name="contraseña"
+            id="contraseña"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <div class="form-label">Pseudonimo</div>
+          <input
+            type="text"
+            name="pseudonimo"
+            id="pseudonimo"
+            class="form-control"
+            required
+          />
+        </div>
+        <div class="form-group mb-3">
+          <div class="form-label">Avatar</div>
+          <input type="file" id="avatar" name="avatar" />
+        </div>
+        <div class="form-group mb-5">
+          <button class="btn btn-success" type="submit">Registrar</button>
+        </div>
+      </form>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+    <script src="../public/javascripts/bootstrap.js"></script>
+  </body>
+</html>

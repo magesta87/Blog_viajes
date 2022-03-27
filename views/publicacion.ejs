@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/Css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/stylesheets/bootstrap/bootstrap-icons/bootstrap-icons.css"
+    />
+    <title>Viajes</title>
+  </head>
+  <header><%- include('./partials/encabezado.ejs') %></header>
+  <body>
+    <div class="container-fluid bg-light border-4 p-3 shadow-lg mt-4">
+      <div class="col-sm-12 text-center">
+        <h3><%=publicacion.titulo %></h3>
+        <hr />
+        <div class="float-md-start">
+          <img src="" alt="avatar" />
+          <p><%=publicacion.pseudonimo%></p>
+        </div>
+        <div class="col-sm-6"><%=publicacion.resumen%></div>
+      </div>
+      <hr />
+      <div class="text-center"><%=publicacion.contenido%></div>
+    </div>
+    <%-include('./partials/footer.ejs') %>
+    <script src="/javascripts/bootstrap.min.js"></script>
+  </body>
+</html>

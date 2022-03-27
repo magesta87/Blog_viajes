@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/Css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/stylesheets/bootstrap/bootstrap-icons/bootstrap-icons.css"
+    />
+    <script src="/javascripts/ckeditor/ckeditor.js"></script>
+
+    <title>Viajes</title>
+  </head>
+  <body>
+    <header><%- include('../partials/encabezado_admin') %></header>
+    <div class="container mt-5">
+      <div class="card-title">
+        <% if (mensaje && mensaje.length > 0) { %>
+        <h4>
+          <span class="icon-info"></span>
+          <%=mensaje%>
+        </h4>
+        <% } %>
+        <h3 class="text-center">Nueva publicacion</h3>
+      </div>
+      <hr />
+      <div class="container-md">
+        <form action="/admin/procesar_agregar" method="POST">
+          <div class="form-group mt-3 mb-3">
+            <label for="titulo" class="form-label"> Titulo </label>
+            <input
+              class="form-control"
+              type="text"
+              name="titulo"
+              id="titulo"
+              required
+            />
+          </div>
+          <div class="form-group mb-3">
+            <label for="resumen">Resumen</label>
+            <textarea
+              class="form-control"
+              name="resumen"
+              id="resumen"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="form-group mb-3">
+            <label for="contenido">Contenido</label>
+            <textarea
+              class="form-control"
+              name="contenido"
+              id="contenido"
+              rows="4"
+            ></textarea>
+          </div>
+          <div class="form-group mb-3">
+            <input type="submit" class="btn btn-light" value="Publicar"></input>
+          </div>
+        </form>
+      </div>
+    </div>
+    <%- include('../partials/footer.ejs') %>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script>
+      ClassicEditor.create(document.querySelector("#contenido")).catch(
+        (error) => {
+          console.log(error);
+        }
+      );
+    </script>
+  </body>
+</html>

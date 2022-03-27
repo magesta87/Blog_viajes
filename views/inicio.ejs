@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/stylesheets/bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="/stylesheets/Css/style.css" />
+    <link
+      rel="stylesheet"
+      href="/stylesheets/bootstrap/bootstrap-icons/bootstrap-icons.css"
+    />
+    <title>Viajes</title>
+  </head>
+
+  <body>
+    <%- include('./partials/encabezado.ejs') %>
+    <div class="container">
+      <div class="section col-md-6 mx-auto">
+        <% if (mensaje && mensaje.length > 0) { %>
+        <h4 class="mt-4">
+          <span class="bi bi-info-circle"></span>
+          <%=mensaje%>
+        </h4>
+        <% } %>
+        <div class="card rounded-3 mt-5 bg-light shadow-lg">
+          <div class="card-header text-center">
+            <h3>Inicio sesion</h3>
+          </div>
+          <div class="card-body mx-auto">
+            <form action="/admin/index" method="POST">
+              <div class="form-group mt-2 mb-3">
+                <input
+                  type="email"
+                  id="user"
+                  name="user"
+                  class="form-control"
+                  placeholder="Email"
+                  required
+                />
+              </div>
+              <div class="form-group mb-3">
+                <input
+                  type="password"
+                  id="pass"
+                  name="pass"
+                  class="form-control"
+                  placeholder="Contraseña"
+                  required
+                />
+              </div>
+              <div class="form-group text-center mb-3">
+                <button type="submit" class="btn btn-success">Continuar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <%- include('./partials/footer.ejs') %>
+    <script src="/javascripts/bootstrap.min.js"></script>
+  </body>
+</html>

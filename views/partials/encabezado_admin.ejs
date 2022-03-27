@@ -1,0 +1,49 @@
+<header class="fixed-top">
+  <nav class="navbar navbar-expand-lg bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">
+        <img
+          src="../public/images/—Pngtree—travel_1371015.png"
+          alt=""
+          width="40"
+          height="40s"
+          class="d-inline-block align-text-top"
+        />
+      </a>
+      <h3 class="text-white">Blog_viajes</h3>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav flex-row w-100">
+          <li class="nav-item px-4">
+            <a class="nav-link bi bi-gear" href="/admin/index"> Admin</a>
+          </li>
+        </ul>
+        <ul class="navbar-nav w-50 float-end">
+          <li class="nav-item">
+            <a class="nav-link bi bi-person" href="/admin/editUser">
+              <%=usuario.pseudonimo %></a
+            >
+          </li>
+          <li class="nav-item ms-4 p-0 m-0">
+            <a
+              class="nav-link bi bi-x-square d-inline-block"
+              href="/cerrar_session"
+            >
+              Cerrar session</a
+            >
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
