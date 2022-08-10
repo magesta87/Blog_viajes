@@ -1,0 +1,15 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background-image: url(../../public/images/flat-lay-yellow-luggage-with-copy-space.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.cuerpo-registro {
+  background-color: azure;
+}
+
+.nav-right {
+  float: right !important;
+}
